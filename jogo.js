@@ -6,10 +6,11 @@ function criarElemento(nome, pontos) {
  pontuacao.textContent = pontos;
  container.appendChild(pessoa)
  container.appendChild(pontuacao);
+
 }
 
 const nome = prompt("Qual o seu nome?")
-document.write("Seja muito bem vindo(a)" + nome)
+document.write("Seja muito bem vindo (a)" + nome)
 localStorage.setItem("nome", nome)
 
 const nMoedas = 45;
@@ -64,6 +65,9 @@ function iniciaJogo()
 
     })
 
+
+
+
     .then(data => {
 
         console.log(data);
@@ -77,6 +81,10 @@ function iniciaJogo()
         });
 
     })
+
+
+
+
 
     .catch(error => {
 
@@ -136,18 +144,8 @@ function contaTempo()
     iniciaJogo();
   }
 }
-function criarElemento(nome, pontos) {
-  const tabela = document.getElementById("ranking");
 
-  const linha = document.createElement("tr");
-  const colunaNome = document.createElement("td");
-  const colunaPontos = document.createElement("td");
 
-  colunaNome.textContent = nome;
-  colunaPontos.textContent = pontos;
 
-  linha.appendChild(colunaNome);
-  linha.appendChild(colunaPontos);
 
-  tabela.appendChild(linha);
-}
+
