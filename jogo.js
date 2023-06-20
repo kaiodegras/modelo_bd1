@@ -38,6 +38,19 @@ function iniciaJogo()
   }
 
   fetch('http://localhost:5050/score')
+  .then(data => {
+    console.log(data);
+  
+    const jogadores = data;
+  
+    jogadores.sort((a, b) => b.pontuacao - a.pontuacao); // Classificar em ordem decrescente
+  
+    const top10 = jogadores.slice(0, 10); // Obter os 10 primeiros jogadores
+  
+    top10.forEach(jogador => {
+      criarElemento(jogador.nome, jogador.pontuacao);
+    });
+  })
 
     .then(response => {
 
@@ -122,4 +135,19 @@ function contaTempo()
       .then(json => console.log(json));
     iniciaJogo();
   }
+}
+function criarElemento(nome, pontos) {
+  const tabela = document.getElementById("ranking");
+
+  const linha = document.createElement("tr");
+  const colunaNome = document.createElement("td");
+  const colunaPontos = document.createElement("td");
+
+  colunaNome.textContent = nome;
+  colunaPontos.textContent = pontos;
+
+  linha.appendChild(colunaNome);
+  linha.appendChild(colunaPontos);
+
+  tabela.appendChild(linha);
 }
