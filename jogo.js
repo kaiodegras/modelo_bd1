@@ -1,5 +1,5 @@
 function criarElemento(nome, pontos) {
- const container = document.getElementById("container")
+ const container = document.getElementById("ranking")
  const pessoa = document.getElementById("h3")
  const pontuacao = document.getElementById("h4")
  pessoa.textContent = nome;
@@ -65,9 +65,6 @@ function iniciaJogo()
 
     })
 
-
-
-
     .then(data => {
 
         console.log(data);
@@ -81,10 +78,6 @@ function iniciaJogo()
         });
 
     })
-
-
-
-
 
     .catch(error => {
 
